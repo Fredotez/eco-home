@@ -81,7 +81,7 @@ export default function Home() {
         </section>
 
         <section id="contact" className={styles.contactSection}>
-          <ContactForm contact={contactSection} />
+          <ContactForm contact={contactSection} services={services} />
           <div className={styles.contactMediaGrid}>
             <div className={styles.contactImage}>
               <Image

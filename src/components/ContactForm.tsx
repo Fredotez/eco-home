@@ -2,16 +2,22 @@
 
 import { useState } from "react";
 import type { ContactSection } from "../types/home";
+import type { ServiceItem } from "../types/home";
+
 
 type FormState = {
+    firstName: string;
+    lastName: string;
     email: string;
     phone: string;
     services: string[];
     message: string;
 };
 
-export function ContactForm({ contact }: { contact: ContactSection }) {
+export function ContactForm({ contact, services }: { contact: ContactSection, services: ServiceItem[] }) {
     const [form, setForm] = useState<FormState>({
+        firstName: "",
+        lastName: "",
         email: "",
         phone: "",
         services: [],
@@ -37,6 +43,11 @@ export function ContactForm({ contact }: { contact: ContactSection }) {
         console.log("Quote request", form);
     };
 
+    const [selectedTitle, setSelectedTitle] = useState(services[0]?.title ?? "");
+
+    const selectedService = services.find((service) => service.title === selectedTitle) ?? services[0];
+
+
     return (
         <div className="space-y-6 rounded-[2rem] bg-zinc-50 p-8 shadow-sm ring-1 ring-zinc-200 dark:bg-zinc-900 dark:ring-zinc-800">
             <div className="space-y-3">
@@ -47,6 +58,26 @@ export function ContactForm({ contact }: { contact: ContactSection }) {
 
             <form className="grid gap-4" onSubmit={handleSubmit}>
                 <div className="grid gap-4 md:grid-cols-2">
+                    <label className="space-y-2 text-sm text-zinc-700 dark:text-zinc-300">
+                        First Name
+                        <input
+                            className="w-full rounded-2xl border border-zinc-200 bg-white px-4 py-3 text-sm text-zinc-900 outline-none transition focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200 dark:border-zinc-700 dark:bg-zinc-950 dark:text-zinc-100"
+                            type="text"
+                            required
+                            value={form.firstName}
+                            onChange={(event) => setForm({ ...form, firstName: event.target.value })}
+                        />
+                    </label>
+                    <label className="space-y-2 text-sm text-zinc-700 dark:text-zinc-300">
+                        Last Name
+                        <input
+                            className="w-full rounded-2xl border border-zinc-200 bg-white px-4 py-3 text-sm text-zinc-900 outline-none transition focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200 dark:border-zinc-700 dark:bg-zinc-950 dark:text-zinc-100"
+                            type="text"
+                            required
+                            value={form.lastName}
+                            onChange={(event) => setForm({ ...form, lastName: event.target.value })}
+                        />
+                    </label>
                     <label className="space-y-2 text-sm text-zinc-700 dark:text-zinc-300">
                         Email
                         <input
@@ -71,20 +102,21 @@ export function ContactForm({ contact }: { contact: ContactSection }) {
 
                 <fieldset className="space-y-3 rounded-3xl border border-zinc-200 bg-white p-5 dark:border-zinc-800 dark:bg-zinc-950">
                     <legend className="text-sm font-semibold text-zinc-900 dark:text-zinc-100">Requested services</legend>
-                    <div className="grid gap-3">
-                        {contact.requestOptions.map((option) => (
-                            <label key={option} className="inline-flex items-center gap-3 rounded-2xl border border-zinc-200 bg-zinc-50 px-4 py-3 text-sm text-zinc-700 transition hover:border-emerald-400 dark:border-zinc-800 dark:bg-zinc-900 dark:text-zinc-200">
-                                <input
-                                    type="checkbox"
-                                    checked={form.services.includes(option)}
-                                    onChange={() => toggleService(option)}
-                                    className="h-4 w-4 rounded border-zinc-300 text-emerald-600 focus:ring-emerald-500"
-                                />
-                                {option}
-                            </label>
+                    <select
+                        id="service-select"
+                        value={selectedService?.title ?? ""}
+                        onChange={(event) => setSelectedTitle(event.target.value)}
+                        className="w-full appearance-none rounded-2xl border border-zinc-200 bg-zinc-50 px-4 py-4 pr-12 text-base font-medium text-zinc-900 shadow-sm outline-none transition focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-100 dark:focus:ring-emerald-900"
+                    >
+                        {services.map((service) => (
+                            <option key={service.title} value={service.title}>
+                                {service.title}
+                            </option>
                         ))}
-                    </div>
+                    </select>
                 </fieldset>
+
+
 
                 <label className="space-y-2 text-sm text-zinc-700 dark:text-zinc-300">
                     Additional details (optional)
