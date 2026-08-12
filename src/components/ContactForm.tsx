@@ -16,7 +16,7 @@ type FormState = {
 
 export function ContactForm({ contact, services }: { contact: ContactSection, services: ServiceItem[] }) {
     const [form, setForm] = useState<FormState>({
-        first: "",
+        firstName: "",
         lastName: "",
         email: "",
         phone: "",
