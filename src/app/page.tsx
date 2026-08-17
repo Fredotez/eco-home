@@ -1,48 +1,63 @@
 import Image from "next/image";
 import styles from "./page.module.css";
-import { ContactForm } from "../components/ContactForm";
 import { ServiceCard } from "../components/ServiceCard";
+import { HeroSection } from "../components/HeroSection";
+import { WhySection } from "../components/WhySection";
+import { ContactSection } from "../components/ContactSection";
 import { contactSection, hero, services, stats, whyChoose } from "../lib/homeData";
+
+const navItems = [
+  { label: "Home", href: "#top" },
+  { label: "Services", href: "#services" },
+  { label: "Why us", href: "#why-us" },
+];
 
 export default function Home() {
   return (
-    <div className={styles.page}>
+    <div id="top" className={styles.page}>
+      <header className="sticky top-0 z-50 border-b border-zinc-200/80 bg-white/80 backdrop-blur-md dark:border-zinc-800 dark:bg-zinc-950/80">
+        <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-6 py-4 sm:px-8 lg:px-12">
+          <a href="#top" className="flex items-center gap-3">
+            <div className="flex h-11 w-11 items-center justify-center overflow-hidden rounded-full border border-emerald-200 bg-emerald-50 shadow-sm dark:border-emerald-800 dark:bg-emerald-950/40">
+              <Image
+                src="/img/Logo-Green.png"
+                alt="EcoHome logo"
+                width={64}
+                height={64}
+                className="h-full w-full object-cover"
+              />
+            </div>
+            <div>
+              <p className="text-lg font-semibold tracking-tight text-zinc-900 dark:text-white">EcoHome</p>
+              <p className="text-[10px] font-medium uppercase tracking-[0.24em] text-zinc-500 dark:text-zinc-400">
+                Property care
+              </p>
+            </div>
+          </a>
+
+          <nav className="hidden items-center gap-2 rounded-full border border-zinc-200 bg-zinc-50 px-2 py-2 shadow-sm md:flex dark:border-zinc-700 dark:bg-zinc-900/80">
+            {navItems.map((item) => (
+              <a
+                key={item.label}
+                href={item.href}
+                className="rounded-full px-4 py-2 text-sm font-medium text-zinc-700 transition hover:bg-white hover:text-zinc-900 dark:text-zinc-200 dark:hover:bg-zinc-800 dark:hover:text-white"
+              >
+                {item.label}
+              </a>
+            ))}
+          </nav>
+
+          <a
+            href="#contact"
+            className="inline-flex items-center justify-center rounded-full bg-emerald-900 px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-emerald-700"
+          >
+            Request a Quote
+          </a>
+        </div>
+      </header>
+
       <main className={styles.wrapper}>
-        <section className={styles.heroSection}>
-          <div className="space-y-6">
-            <div className={styles.heroBadge}>{hero.badge}</div>
-            <div className={styles.heroCopy}>
-              <h1 className={styles.heroHeading}>{hero.headline}</h1>
-              <p className={styles.heroText}>{hero.description}</p>
-            </div>
-            <div className={styles.heroActions}>
-              <a href="#services" className={styles.primaryButton}>
-                {hero.primaryAction}
-              </a>
-              <a href="#contact" className={styles.secondaryButton}>
-                {hero.secondaryAction}
-              </a>
-            </div>
-            <div className={styles.statsGrid}>
-              {stats.map((stat) => (
-                <div key={stat.label} className={styles.statCard}>
-                  <p className="text-3xl font-semibold text-emerald-900 dark:text-emerald-400">{stat.value}</p>
-                  <p className="mt-2 text-sm text-zinc-600 dark:text-zinc-400">{stat.label}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-          <div className={styles.heroImage}>
-            <Image
-              src="/img/DrivewayLay.jpeg"
-              alt="Finished driveway hardscaping"
-              width={900}
-              height={700}
-              className="h-full w-full object-cover"
-              priority
-            />
-          </div>
-        </section>
+        <HeroSection hero={hero} stats={stats} />
 
         <section id="services" className={styles.servicesSection}>
           <div className={styles.servicesIntro}>
@@ -59,50 +74,9 @@ export default function Home() {
           <ServiceCard services={services} />
         </section>
 
-        <section className={styles.whySection}>
-          <div className={styles.whyIntro}>
-            <p className={styles.whyTitle}>Why choose us</p>
-            <h2 className={styles.whyHeading}>
-              Trusted, local craftsmanship for every season.
-            </h2>
-            <p className={styles.whyText}>
-              Eco-Home combines high-quality materials with eco-conscious practices to deliver modern lawn,
-              driveway, and winter services that stand up to changing weather and keep your home safe and polished.
-            </p>
-          </div>
-          <div className={styles.whyGrid}>
-            {whyChoose.map((item) => (
-              <div key={item.title} className={styles.whyCard}>
-                <p className="text-sm font-semibold uppercase tracking-[.2em] text-emerald-300">{item.title}</p>
-                <p className="mt-2 text-base leading-7 text-zinc-100/85">{item.description}</p>
-              </div>
-            ))}
-          </div>
-        </section>
+        <WhySection whyChoose={whyChoose} />
 
-        <section id="contact" className={styles.contactSection}>
-          <ContactForm contact={contactSection} services={services} />
-          <div className={styles.contactMediaGrid}>
-            <div className={styles.contactImage}>
-              <Image
-                src={contactSection.imageA}
-                alt="Lawn care maintenance"
-                width={640}
-                height={520}
-                className="h-full w-full object-cover"
-              />
-            </div>
-            <div className={styles.contactImage}>
-              <Image
-                src={contactSection.imageB}
-                alt="Asphalt driveway service"
-                width={640}
-                height={520}
-                className="h-full w-full object-cover"
-              />
-            </div>
-          </div>
-        </section>
+        <ContactSection contact={contactSection} services={services} />
       </main>
     </div>
   );
