@@ -37,10 +37,36 @@ export function ContactForm({ contact, services }: { contact: ContactSection, se
         });
     };
 
-    const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
-        setSubmitted(true);
-        console.log("Quote request", form);
+
+        const payload = {
+            ...form,
+            services: selectedService ? [selectedService.title] : [],
+        };
+
+        console.log("DEBUG: contact form submit triggered", payload);
+
+        try {
+            const response = await fetch("/api/contact", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(payload),
+            });
+
+            const data = await response.json();
+            console.log("DEBUG: contact API response", data, "status", response.status);
+
+            if (!response.ok) {
+                throw new Error(data?.error ?? "Failed to submit contact request");
+            }
+
+            setSubmitted(true);
+        } catch (error) {
+            console.error("DEBUG: contact API error", error);
+        }
     };
 
     const [selectedTitle, setSelectedTitle] = useState(services[0]?.title ?? "");
