@@ -24,6 +24,8 @@ export function ContactForm({ contact, services }: { contact: ContactSection, se
         message: "",
     });
     const [submitted, setSubmitted] = useState(false);
+    const [isSending, setIsSending] = useState(false);
+    const [error, setError] = useState<string | null>(null);
 
     const toggleService = (option: string) => {
         setForm((current) => {
@@ -37,10 +39,37 @@ export function ContactForm({ contact, services }: { contact: ContactSection, se
         });
     };
 
-    const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
-        setSubmitted(true);
-        console.log("Quote request", form);
+        setError(null);
+        setIsSending(true);
+
+        const payload = {
+            ...form,
+            service: selectedTitle,
+        };
+
+        try {
+            const resp = await fetch('/api/contact', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload),
+            });
+
+            if (!resp.ok) {
+                const data = await resp.json().catch(() => ({}));
+                setError(data?.error || 'Failed to send request');
+                setIsSending(false);
+                return;
+            }
+
+            setSubmitted(true);
+        } catch (err) {
+            console.error('Error submitting contact form', err);
+            setError('An unexpected error occurred. Please try again later.');
+        } finally {
+            setIsSending(false);
+        }
     };
 
     const [selectedTitle, setSelectedTitle] = useState(services[0]?.title ?? "");
@@ -129,11 +158,19 @@ export function ContactForm({ contact, services }: { contact: ContactSection, se
 
                 <button
                     type="submit"
-                    className="inline-flex items-center justify-center rounded-full bg-emerald-900 px-6 py-3 text-sm font-semibold text-white transition hover:bg-emerald-700"
+                    disabled={isSending}
+                    aria-busy={isSending}
+                    className="inline-flex items-center justify-center rounded-full bg-emerald-900 px-6 py-3 text-sm font-semibold text-white transition hover:bg-emerald-700 disabled:opacity-50"
                 >
-                    Submit request
+                    {isSending ? 'Sending...' : 'Submit request'}
                 </button>
             </form>
+
+            {error ? (
+                <div className="rounded-3xl bg-red-100 p-4 text-sm text-red-900 dark:bg-red-900/20 dark:text-red-100">
+                    {error}
+                </div>
+            ) : null}
 
             {submitted ? (
                 <div className="rounded-3xl bg-emerald-100 p-4 text-sm text-emerald-900 dark:bg-emerald-900/20 dark:text-emerald-100">
