@@ -49,6 +49,8 @@ export function ContactForm({ contact, services }: { contact: ContactSection, se
             service: selectedTitle,
         };
 
+        console.log("DEBUG: contact form submit triggered", payload);
+
         try {
             const resp = await fetch('/api/contact', {
                 method: 'POST',
@@ -56,16 +58,17 @@ export function ContactForm({ contact, services }: { contact: ContactSection, se
                 body: JSON.stringify(payload),
             });
 
+            const data = await resp.json().catch(() => ({}));
+            console.log("DEBUG: contact API response", data, "status", resp.status);
+
             if (!resp.ok) {
-                const data = await resp.json().catch(() => ({}));
                 setError(data?.error || 'Failed to send request');
-                setIsSending(false);
                 return;
             }
 
             setSubmitted(true);
         } catch (err) {
-            console.error('Error submitting contact form', err);
+            console.error('DEBUG: contact API error', err);
             setError('An unexpected error occurred. Please try again later.');
         } finally {
             setIsSending(false);
