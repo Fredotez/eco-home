@@ -15,42 +15,33 @@ const navItems = [
 export default function Home() {
   return (
     <div id="top" className={styles.page}>
-      <header className="sticky top-0 z-50 border-b border-zinc-200/80 bg-white/80 backdrop-blur-md dark:border-zinc-800 dark:bg-zinc-950/80">
-        <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-6 py-4 sm:px-8 lg:px-12">
-          <a href="#top" className="flex items-center gap-3">
-            <div className="flex h-11 w-11 items-center justify-center overflow-hidden rounded-full border border-emerald-200 bg-emerald-50 shadow-sm dark:border-emerald-800 dark:bg-emerald-950/40">
+      <header className={styles.header}>
+        <div className={styles.headerInner}>
+          <a href="#top" className={styles.brandLink}>
+            <div className={styles.brandMark}>
               <Image
                 src="/img/Logo-Green.png"
                 alt="EcoHome logo"
                 width={64}
                 height={64}
-                className="h-full w-full object-cover"
+                className={styles.brandLogo}
               />
             </div>
-            <div>
-              <p className="text-lg font-semibold tracking-tight text-zinc-900 dark:text-white">EcoHome</p>
-              <p className="text-[10px] font-medium uppercase tracking-[0.24em] text-zinc-500 dark:text-zinc-400">
-                Property care
-              </p>
+            <div className={styles.brandText}>
+              <p className={styles.brandName}>EcoHome</p>
+              <p className={styles.brandTag}>Property care</p>
             </div>
           </a>
 
-          <nav className="hidden items-center gap-2 rounded-full border border-zinc-200 bg-zinc-50 px-2 py-2 shadow-sm md:flex dark:border-zinc-700 dark:bg-zinc-900/80">
+          <nav className={styles.mainNav}>
             {navItems.map((item) => (
-              <a
-                key={item.label}
-                href={item.href}
-                className="rounded-full px-4 py-2 text-sm font-medium text-zinc-700 transition hover:bg-white hover:text-zinc-900 dark:text-zinc-200 dark:hover:bg-zinc-800 dark:hover:text-white"
-              >
+              <a key={item.label} href={item.href} className={styles.navLink}>
                 {item.label}
               </a>
             ))}
           </nav>
 
-          <a
-            href="#contact"
-            className="inline-flex items-center justify-center rounded-full bg-emerald-900 px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-emerald-700"
-          >
+          <a href="#contact" className={styles.primaryCta}>
             Request a Quote
           </a>
         </div>

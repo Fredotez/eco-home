@@ -46,7 +46,7 @@ export const services: ServiceItem[] = [
     {
         title: "Home Improvement Projects",
         description:
-            "Enhance your living space with practical upgrades that add comfort and value.",
+            "Enhance your    living space with practical upgrades that add comfort and value.",
         offerings: [
             "Painting and touch-ups",
             "Minor renovations and upgrades",
@@ -166,8 +166,8 @@ export const contactSection: ContactSection = {
     heading: "Ready to improve your outdoor space?",
     description:
         "Contact Eco-Home for a free estimate on interlock, lawn care, landscape work, or dependable snow removal.",
-    phone: "(555) 123-4567",
-    email: "hello@eco-home.services",
+    phone: "YOUR BUSINESS PHONE",
+    email: "your-business-email@example.com",
     requestOptions: services.map((service) => service.title),
     imageA: "/img/Lawn.jpeg",
     imageB: "/img/Driveway.jpeg",
