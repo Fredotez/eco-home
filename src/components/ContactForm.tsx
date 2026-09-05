@@ -14,7 +14,13 @@ type FormState = {
   message: string;
 };
 
-export function ContactForm({ contact, services }: { contact: ContactSection; services: ServiceItem[] }) {
+export function ContactForm({
+  contact,
+  services,
+}: {
+  contact: ContactSection;
+  services: ServiceItem[];
+}) {
   const [form, setForm] = useState<FormState>({
     firstName: "",
     lastName: "",
@@ -26,46 +32,35 @@ export function ContactForm({ contact, services }: { contact: ContactSection; se
   const [submitted, setSubmitted] = useState(false);
   const [isSending, setIsSending] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [selectedTitle, setSelectedTitle] = useState(services[0]?.title ?? "");
+
+  const selectedService = services.find((service) => service.title === selectedTitle) ?? services[0];
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setError(null);
     setIsSending(true);
 
-    const payload = {
-      ...form,
-      service: selectedTitle,
-    };
-
-    console.log("DEBUG: contact form submit triggered", payload);
-
     try {
-      const resp = await fetch("/api/contact", {
+      const response = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
+        body: JSON.stringify({ ...form, service: selectedTitle }),
       });
+      const data = await response.json().catch(() => ({}));
 
-      const data = await resp.json().catch(() => ({}));
-      console.log("DEBUG: contact API response", data, "status", resp.status);
-
-      if (!resp.ok) {
-        setError(data?.error || "Failed to send request");
+      if (!response.ok) {
+        setError(data?.error || "Failed to send request.");
         return;
       }
 
       setSubmitted(true);
-    } catch (err) {
-      console.error("DEBUG: contact API error", err);
+    } catch {
       setError("An unexpected error occurred. Please try again later.");
     } finally {
       setIsSending(false);
     }
   };
-
-  const [selectedTitle, setSelectedTitle] = useState(services[0]?.title ?? "");
-
-  const selectedService = services.find((service) => service.title === selectedTitle) ?? services[0];
 
   return (
     <div className={styles.contactFormCard}>
@@ -73,75 +68,45 @@ export function ContactForm({ contact, services }: { contact: ContactSection; se
         <p className={styles.contactEyebrow}>Get in touch</p>
         <h2 className={styles.contactHeading}>{contact.heading}</h2>
         <p className={styles.contactDescription}>{contact.description}</p>
+        <p>{contact.phone} &middot; {contact.email}</p>
       </div>
 
       <form className={styles.contactForm} onSubmit={handleSubmit}>
         <div className={styles.formGrid}>
           <label className={styles.formField}>
             First Name
-            <input
-              className={styles.formInput}
-              type="text"
-              required
-              value={form.firstName}
-              onChange={(event) => setForm({ ...form, firstName: event.target.value })}
-            />
+            <input className={styles.formInput} type="text" required value={form.firstName}
+              onChange={(event) => setForm({ ...form, firstName: event.target.value })} />
           </label>
           <label className={styles.formField}>
             Last Name
-            <input
-              className={styles.formInput}
-              type="text"
-              required
-              value={form.lastName}
-              onChange={(event) => setForm({ ...form, lastName: event.target.value })}
-            />
+            <input className={styles.formInput} type="text" required value={form.lastName}
+              onChange={(event) => setForm({ ...form, lastName: event.target.value })} />
           </label>
           <label className={styles.formField}>
             Email
-            <input
-              className={styles.formInput}
-              type="email"
-              required
-              value={form.email}
-              onChange={(event) => setForm({ ...form, email: event.target.value })}
-            />
+            <input className={styles.formInput} type="email" required value={form.email}
+              onChange={(event) => setForm({ ...form, email: event.target.value })} />
           </label>
           <label className={styles.formField}>
             Phone
-            <input
-              className={styles.formInput}
-              type="tel"
-              required
-              value={form.phone}
-              onChange={(event) => setForm({ ...form, phone: event.target.value })}
-            />
+            <input className={styles.formInput} type="tel" required value={form.phone}
+              onChange={(event) => setForm({ ...form, phone: event.target.value })} />
           </label>
         </div>
 
         <fieldset className={styles.formFieldSet}>
           <legend className={styles.formFieldSetLegend}>Requested services</legend>
-          <select
-            id="service-select"
-            value={selectedService?.title ?? ""}
-            onChange={(event) => setSelectedTitle(event.target.value)}
-            className={styles.formSelect}
-          >
-            {services.map((service) => (
-              <option key={service.title} value={service.title}>
-                {service.title}
-              </option>
-            ))}
+          <select id="service-select" value={selectedService?.title ?? ""}
+            onChange={(event) => setSelectedTitle(event.target.value)} className={styles.formSelect}>
+            {services.map((service) => <option key={service.title} value={service.title}>{service.title}</option>)}
           </select>
         </fieldset>
 
         <label className={styles.formLabel}>
           Additional details (optional)
-          <textarea
-            className={styles.formTextarea}
-            value={form.message}
-            onChange={(event) => setForm({ ...form, message: event.target.value })}
-          />
+          <textarea className={styles.formTextarea} value={form.message}
+            onChange={(event) => setForm({ ...form, message: event.target.value })} />
         </label>
 
         <button type="submit" disabled={isSending} aria-busy={isSending} className={styles.submitButton}>
@@ -150,7 +115,6 @@ export function ContactForm({ contact, services }: { contact: ContactSection; se
       </form>
 
       {error ? <div className={styles.formError}>{error}</div> : null}
-
       {submitted ? <div className={styles.formSuccess}>Thanks! Your quote request was received.</div> : null}
     </div>
   );

@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { useState } from "react";
 import styles from "../app/page.module.css";
 import type { ServiceItem } from "../types/home";
@@ -14,27 +13,33 @@ export function ServiceCard({ services }: { services: ServiceItem[] }) {
     <div className={styles.serviceCardLayout}>
       <div className={styles.serviceControls}>
         <div className={styles.serviceSelectorCard}>
-          <label htmlFor="service-select" className={styles.serviceSelectLabel}>
-            Select a service
-          </label>
-          <div className={styles.serviceSelectWrap}>
-            <select
-              id="service-select"
-              value={selectedService?.title ?? ""}
-              onChange={(event) => setSelectedTitle(event.target.value)}
-              className={styles.serviceSelect}
-            >
-              {services.map((service) => (
-                <option key={service.title} value={service.title}>
-                  {service.title}
-                </option>
-              ))}
-            </select>
-            <div className={styles.serviceSelectIcon}>
-              <svg viewBox="0 0 20 20" fill="currentColor" className={styles.serviceSelectIconSvg} aria-hidden="true">
-                <path d="M5.25 7.25a.75.75 0 0 1 1.06 0L10 11.94l3.69-4.69a.75.75 0 1 1 1.06 1.06l-4.22 5.36a.75.75 0 0 1-1.06 0l-4.22-5.36a.75.75 0 0 1 0-1.06Z" />
-              </svg>
-            </div>
+          <div className={styles.serviceSelectorHeader}>
+            <h4 className={styles.serviceSelectLabel}>Our services</h4>
+            <span className={styles.serviceSelectorSub}>Pick a service to view details</span>
+          </div>
+
+          <div className={styles.serviceGrid}>
+            {services.map((service) => {
+              const active = service.title === selectedTitle;
+              return (
+                <button
+                  key={service.title}
+                  onClick={() => setSelectedTitle(service.title)}
+                  className={active ? `${styles.serviceItem} ${styles.serviceItemActive}` : styles.serviceItem}
+                  aria-pressed={active}
+                >
+                  <div
+                    className={styles.serviceItemThumb}
+                    style={{ backgroundImage: `url(${service.image})` }}
+                    aria-hidden
+                  />
+                  <div className={styles.serviceItemContent}>
+                    <div className={styles.serviceItemTitle}>{service.title}</div>
+                    <div className={styles.serviceItemMeta}>{service.priceEstimate}</div>
+                  </div>
+                </button>
+              );
+            })}
           </div>
         </div>
 
@@ -45,18 +50,16 @@ export function ServiceCard({ services }: { services: ServiceItem[] }) {
         </div>
       </div>
 
-      <article className={styles.servicePanel}>
-        <div className={styles.serviceImageWrap}>
-          {selectedService ? (
-            <Image
-              src={selectedService.image}
-              alt={selectedService.alt}
-              width={900}
-              height={700}
-              className={styles.serviceImageAsset}
-            />
-          ) : null}
-        </div>
+      <article
+        className={styles.servicePanel}
+        style={
+          selectedService
+            ? {
+                backgroundImage: `linear-gradient(135deg, rgba(15, 23, 42, 0.18), rgba(15, 23, 42, 0.7)), url(${selectedService.image})`,
+              }
+            : undefined
+        }
+      >
         <div className={styles.servicePanelBody}>
           <div className={styles.servicePill}>Tailored support</div>
           <div className={styles.serviceInfoGroup}>
