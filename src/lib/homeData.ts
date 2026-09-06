@@ -29,6 +29,7 @@ export const services: ServiceItem[] = [
         priceEstimate: "From $150 per hour",
         image: "/img/DrivewayLay.jpeg",
         alt: "Moving and transition support",
+        imagePosition: "center 42%",
     },
     {
         title: "Repairs & Handyman Work",
@@ -42,6 +43,7 @@ export const services: ServiceItem[] = [
         priceEstimate: "$90–$160 per hour",
         image: "/img/CF9EC8A3-327F-43BB-BCD8-EC2A37295097_4_5005_c.jpeg",
         alt: "Home repairs and handyman work",
+        imagePosition: "center 35%",
     },
     {
         title: "Home Improvement Projects",
@@ -56,6 +58,7 @@ export const services: ServiceItem[] = [
         priceEstimate: "$120–$220 per hour",
         image: "/img/87EF1625-8AEE-491D-9ABF-50D14D13A19C.jpeg",
         alt: "Home improvement projects",
+        imagePosition: "center 40%",
     },
     {
         title: "Outdoor & Yard Services",
@@ -69,6 +72,7 @@ export const services: ServiceItem[] = [
         priceEstimate: "$110–$190 per hour",
         image: "/img/LawnCare.jpeg",
         alt: "Outdoor and yard maintenance",
+        imagePosition: "center 48%",
     },
     {
         title: "Seasonal Maintenance",
@@ -83,6 +87,7 @@ export const services: ServiceItem[] = [
         priceEstimate: "$120–$200 per hour",
         image: "/img/Snow.jpeg",
         alt: "Seasonal maintenance and snow removal",
+        imagePosition: "center center",
     },
     {
         title: "Property Turnover & Prep",
@@ -96,6 +101,7 @@ export const services: ServiceItem[] = [
         priceEstimate: "From $150 per visit",
         image: "/img/Lawn.jpeg",
         alt: "Property turnover and prep",
+        imagePosition: "center 42%",
     },
     {
         title: "Home Organization & Setup",
@@ -109,6 +115,7 @@ export const services: ServiceItem[] = [
         priceEstimate: "$100–$170 per hour",
         image: "/img/AF7FD3A0-EC63-48BE-985D-D35433398D05.jpeg",
         alt: "Home organization and setup",
+        imagePosition: "center 38%",
     },
     {
         title: "On-Demand Labour Support",
@@ -122,6 +129,7 @@ export const services: ServiceItem[] = [
         priceEstimate: "$95–$150 per hour",
         image: "/img/Ciment.jpeg",
         alt: "On-demand labour support",
+        imagePosition: "center 42%",
     },
     {
         title: "Custom & Special Projects",
@@ -135,6 +143,7 @@ export const services: ServiceItem[] = [
         priceEstimate: "Estimates from $120 per hour",
         image: "/img/444D16BB-198C-42C3-B97F-7351B5EAAFD5.jpeg",
         alt: "Custom and special projects",
+        imagePosition: "center 42%",
     },
 ];
 

@@ -50,8 +50,8 @@ export function HeroSection({ hero, stats }: { hero: HeroSectionType; stats: Sta
             Property care
           </div>
           <Image
-            src="/img/DrivewayLay.jpeg"
-            alt="Finished driveway hardscaping"
+            src="/img/LawnCare.jpeg"
+            alt="Fresh sod being installed"
             width={900}
             height={700}
             className={styles.heroImageAsset}

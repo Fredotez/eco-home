@@ -41,7 +41,13 @@ export function ServiceCard({ services }: { services: ServiceItem[] }) {
         </div>
         <div className={styles.servicePanel}>
           {selectedService ? (
-            <div className={styles.servicePanelImage} style={{ backgroundImage: `url(${selectedService.image})` }} />
+            <div
+              className={styles.servicePanelImage}
+              style={{
+                backgroundImage: `url(${selectedService.image})`,
+                backgroundPosition: selectedService.imagePosition ?? "center",
+              }}
+            />
           ) : null}
           <div className={styles.servicePanelBody}>
             <div className={styles.servicePill}>Tailored support</div>
