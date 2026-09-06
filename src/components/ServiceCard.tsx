@@ -10,80 +10,67 @@ export function ServiceCard({ services }: { services: ServiceItem[] }) {
   const selectedService = services.find((service) => service.title === selectedTitle) ?? services[0];
 
   return (
-    <div className={styles.serviceCardLayout}>
-      <div className={styles.serviceControls}>
-        <div className={styles.serviceSelectorCard}>
-          <div className={styles.serviceSelectorHeader}>
-            <h4 className={styles.serviceSelectLabel}>Our services</h4>
-            <span className={styles.serviceSelectorSub}>Pick a service to view details</span>
-          </div>
-
-          <div className={styles.serviceGrid}>
-            {services.map((service) => {
-              const active = service.title === selectedTitle;
-              return (
-                <button
-                  key={service.title}
-                  onClick={() => setSelectedTitle(service.title)}
-                  className={active ? `${styles.serviceItem} ${styles.serviceItemActive}` : styles.serviceItem}
-                  aria-pressed={active}
-                >
-                  <div
-                    className={styles.serviceItemThumb}
-                    style={{ backgroundImage: `url(${service.image})` }}
-                    aria-hidden
-                  />
-                  <div className={styles.serviceItemContent}>
-                    <div className={styles.serviceItemTitle}>{service.title}</div>
-                    <div className={styles.serviceItemMeta}>{service.priceEstimate}</div>
-                  </div>
-                </button>
-              );
-            })}
-          </div>
-        </div>
-
-        <div className={styles.serviceOverviewCard}>
-          <p className={styles.serviceOverviewEyebrow}>Service overview</p>
-          <h3 className={styles.serviceOverviewTitle}>{selectedService?.title}</h3>
-          <p className={styles.serviceOverviewDescription}>{selectedService?.description}</p>
-        </div>
+    <article className={styles.serviceCard}>
+      <div className={styles.serviceIntro}>
+        <p className={styles.serviceSelectLabel}>Our services</p>
+        <h2 className={styles.serviceHeading}>One trusted partner for the work in between.</h2>
+        <p className={styles.serviceIntroText}>
+          Select a service to see how EcoHome can make your next project simpler.
+        </p>
       </div>
-
-      <article
-        className={styles.servicePanel}
-        style={
-          selectedService
-            ? {
-                backgroundImage: `linear-gradient(135deg, rgba(15, 23, 42, 0.18), rgba(15, 23, 42, 0.7)), url(${selectedService.image})`,
-              }
-            : undefined
-        }
-      >
-        <div className={styles.servicePanelBody}>
-          <div className={styles.servicePill}>Tailored support</div>
-          <div className={styles.serviceInfoGroup}>
+      <div className={styles.serviceLayout}>
+        <div className={styles.serviceGrid}>
+          {services.map((service, index) => {
+            const active = service.title === selectedTitle;
+            return (
+              <button
+                key={service.title}
+                onClick={() => setSelectedTitle(service.title)}
+                className={active ? `${styles.serviceItem} ${styles.serviceItemActive}` : styles.serviceItem}
+                aria-pressed={active}
+              >
+                <span className={styles.serviceItemNumber}>{String(index + 1).padStart(2, "0")}</span>
+                <span className={styles.serviceItemContent}>
+                  <span className={styles.serviceItemTitle}>{service.title}</span>
+                  <span className={styles.serviceItemMeta}>{service.priceEstimate}</span>
+                </span>
+                <span className={styles.serviceItemArrow} aria-hidden="true">↗</span>
+              </button>
+            );
+          })}
+        </div>
+        <div className={styles.servicePanel}>
+          {selectedService ? (
+            <div
+              className={styles.servicePanelImage}
+              style={{
+                backgroundImage: `url(${selectedService.image})`,
+                backgroundPosition: selectedService.imagePosition ?? "center",
+              }}
+            />
+          ) : null}
+          <div className={styles.servicePanelBody}>
+            <div className={styles.servicePill}>Tailored support</div>
             <div className={styles.serviceTitleRow}>
               <h3 className={styles.serviceTitle}>{selectedService?.title}</h3>
-              {selectedService?.priceEstimate ? (
-                <span className={styles.servicePriceBadge}>{selectedService.priceEstimate}</span>
-              ) : null}
+              {selectedService?.priceEstimate ? <span className={styles.servicePriceBadge}>{selectedService.priceEstimate}</span> : null}
             </div>
             <p className={styles.serviceDescription}>{selectedService?.description}</p>
-          </div>
-          <div className={styles.serviceDetailsGroup}>
-            <p className={styles.serviceDetailsHeader}>What&apos;s included</p>
-            <ul className={styles.serviceOfferingsList}>
-              {selectedService?.offerings.map((item) => (
-                <li key={item} className={styles.serviceOfferingItem}>
-                  <span className={styles.serviceBullet} aria-hidden="true" />
-                  <span>{item}</span>
-                </li>
-              ))}
-            </ul>
+            <div className={styles.serviceDetailsGroup}>
+              <p className={styles.serviceDetailsHeader}>What&apos;s included</p>
+              <ul className={styles.serviceOfferingsList}>
+                {selectedService?.offerings.map((item) => (
+                  <li key={item} className={styles.serviceOfferingItem}>
+                    <span className={styles.serviceBullet} aria-hidden="true" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <a href="#contact" className={styles.serviceLink}>Talk to us about this <span aria-hidden="true">→</span></a>
           </div>
         </div>
-      </article>
-    </div>
+      </div>
+    </article>
   );
 }

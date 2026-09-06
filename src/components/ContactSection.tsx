@@ -9,7 +9,7 @@ export function ContactSection({ contact, services }: { contact: ContactSectionT
     <section id="contact" className={styles.contactSection}>
       <ContactForm contact={contact} services={services} />
       <div className={styles.contactMediaGrid}>
-        <div className={styles.contactImage}>
+        <div className={`${styles.contactImage} ${styles.contactImageA}`}>
           <Image
             src={contact.imageA}
             alt="Lawn care maintenance"
@@ -18,7 +18,7 @@ export function ContactSection({ contact, services }: { contact: ContactSectionT
             className={styles.contactImageAsset}
           />
         </div>
-        <div className={styles.contactImage}>
+        <div className={`${styles.contactImage} ${styles.contactImageB}`}>
           <Image
             src={contact.imageB}
             alt="Asphalt driveway service"

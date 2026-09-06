@@ -1,442 +1,103 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap');
-
-@reference "tailwindcss";
-
-.page {
-  @apply min-h-screen bg-gradient-to-b from-white to-zinc-50 text-zinc-900 antialiased dark:from-zinc-950 dark:to-zinc-900 dark:text-zinc-100;
-  font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-.wrapper {
-  @apply mx-auto flex max-w-7xl flex-col gap-20 px-6 py-10 sm:px-8 lg:px-12;
-}
-
-.header {
-  @apply sticky top-0 z-50 border-b border-zinc-200/80 bg-white/75 backdrop-blur-xl dark:border-zinc-800 dark:bg-zinc-950/75;
-}
-
-.headerInner {
-  @apply mx-auto flex max-w-7xl items-center justify-between gap-4 px-6 py-4 sm:px-8 lg:px-12;
-}
-
-.brandLink {
-  @apply flex items-center gap-3;
-}
-
-.brandMark {
-  @apply flex h-12 w-12 items-center justify-center overflow-hidden rounded-full border border-emerald-100 bg-gradient-to-br from-emerald-50 to-white shadow-md dark:border-emerald-800 dark:bg-emerald-950/40;
-}
-
-.brandLogo {
-  @apply h-full w-full object-cover;
-}
-
-.brandText {
-  @apply flex flex-col;
-}
-
-.brandName {
-  @apply text-xl font-bold tracking-tight text-zinc-900 dark:text-white;
-}
-
-.brandTag {
-  @apply text-[10px] font-medium uppercase tracking-[0.24em] text-zinc-500 dark:text-zinc-400;
-}
-
-.mainNav {
-  @apply hidden items-center gap-2 rounded-full border border-zinc-200 bg-zinc-50 px-2 py-2 shadow-sm md:flex dark:border-zinc-700 dark:bg-zinc-900/80;
-}
-
-.navLink {
-  @apply rounded-full px-4 py-2 text-sm font-medium text-zinc-700 transition hover:bg-white hover:text-zinc-900 dark:text-zinc-200 dark:hover:bg-zinc-800 dark:hover:text-white;
-}
-
-.primaryCta {
-  @apply inline-flex items-center justify-center rounded-full bg-emerald-900 px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-emerald-700;
-}
-
-.heroSection {
-  @apply relative;
-}
-
-.heroPanel {
-  @apply grid gap-8 overflow-hidden rounded-[2rem] border border-zinc-200 bg-white p-4 shadow-[0_24px_80px_rgba(15,23,42,0.08)] sm:p-6 lg:grid-cols-[1.1fr_0.9fr] lg:items-center lg:p-8;
-  background: linear-gradient(135deg, rgba(255,255,255,0.96), rgba(236,253,245,0.92));
-}
-
-.heroContent {
-  @apply space-y-6 p-2;
-}
-
-.heroBadge {
-  @apply inline-flex rounded-full bg-emerald-100 px-4 py-2 text-sm font-semibold text-emerald-800 ring-1 ring-emerald-200 dark:bg-emerald-900/20 dark:text-emerald-200 dark:ring-emerald-700/40;
-}
-
-.heroCopy {
-  @apply space-y-4;
-}
-
-.heroHeading {
-  @apply max-w-3xl text-4xl font-black leading-[0.96] tracking-[-0.06em] text-zinc-950 sm:text-5xl md:text-6xl dark:text-white;
-}
-
-.heroText {
-  @apply max-w-xl text-lg leading-8 text-zinc-600 dark:text-zinc-300;
-}
-
-.heroActions {
-  @apply flex flex-col gap-4 sm:flex-row;
-}
-
-.primaryButton {
-  @apply inline-flex items-center justify-center rounded-full bg-emerald-900 px-6 py-3 text-sm font-semibold text-white shadow-md transition duration-200 ease-in-out hover:-translate-y-1 hover:bg-emerald-700;
-  box-shadow: 0 18px 36px rgba(6, 95, 70, 0.14);
-}
-
-.secondaryButton {
-  @apply inline-flex items-center justify-center rounded-full border border-zinc-200 bg-white px-6 py-3 text-sm font-semibold text-zinc-900 transition hover:border-zinc-300 hover:bg-zinc-100 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-100 dark:hover:bg-zinc-800;
-}
-
-.heroTrustBar {
-  @apply grid gap-3 pt-2 sm:grid-cols-3;
-}
-
-.heroTrustItem {
-  @apply flex items-center gap-3 rounded-2xl border border-zinc-200 bg-white/90 px-4 py-3 text-sm font-medium text-zinc-700 shadow-sm dark:border-zinc-800 dark:bg-zinc-900/70 dark:text-zinc-200;
-}
-
-.heroTrustDot {
-  @apply flex h-8 w-8 items-center justify-center rounded-full bg-emerald-100 text-sm text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-300;
-}
-
-.statsGrid {
-  @apply grid gap-4 sm:grid-cols-2 sm:gap-6 xl:grid-cols-3;
-}
-
-.statCard {
-  @apply rounded-3xl border border-zinc-200 bg-white/90 p-5 shadow-sm ring-1 ring-zinc-200/50 backdrop-blur dark:border-zinc-800 dark:bg-zinc-900/80 dark:ring-zinc-800/60;
-}
-
-.statValue {
-  @apply text-3xl font-semibold text-emerald-900 dark:text-emerald-400;
-}
-
-.statLabel {
-  @apply mt-2 text-sm text-zinc-600 dark:text-zinc-400;
-}
-
-.heroImage {
-  @apply relative overflow-hidden rounded-[1.8rem] border border-zinc-200 bg-zinc-100 shadow-[0_24px_60px_rgba(15,23,42,0.12)] dark:border-zinc-800 dark:bg-zinc-950; 
-  min-height: 420px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.8rem;
-}
-
-.heroImageAsset {
-  @apply h-full w-full rounded-[1.4rem] object-cover object-center transition-transform duration-500 ease-in-out;
-}
-
-.heroImageAsset:hover {
-  transform: scale(1.02);
-}
-
-.heroImageBadge {
-  @apply absolute left-6 top-6 inline-flex items-center gap-2 rounded-full border border-white/60 bg-white/80 px-3 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-zinc-700 shadow-sm backdrop-blur-md;
-}
-
-.heroImageBadgeDot {
-  @apply h-2.5 w-2.5 rounded-full bg-emerald-500;
-}
-
-.servicesSection {
-  @apply space-y-10;
-}
-
-.servicesIntro {
-  @apply space-y-3 text-center;
-}
-
-.serviceBadge {
-  @apply text-sm font-semibold uppercase tracking-[.25em] text-emerald-700 dark:text-emerald-300;
-}
-
-.servicesTitle {
-  @apply text-3xl font-semibold tracking-tight text-zinc-950 dark:text-white sm:text-4xl;
-}
-
-.servicesText {
-  @apply mx-auto max-w-2xl text-base leading-7 text-zinc-600 dark:text-zinc-300;
-}
-
-.serviceCardLayout {
-  @apply grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-stretch;
-}
-
-.serviceControls {
-  @apply flex flex-col gap-5;
-}
-
-.serviceSelectorCard {
-  @apply rounded-[2rem] border border-zinc-200 bg-gradient-to-br from-white to-emerald-50/40 p-6 shadow-[0_18px_45px_rgba(15,23,42,0.05)] dark:border-zinc-800 dark:from-zinc-950 dark:to-zinc-900;
-}
-
-.serviceSelectorHeader {
-  @apply mb-3 flex items-center justify-between gap-3;
-}
-
-.serviceSelectLabel {
-  @apply block text-sm font-semibold uppercase tracking-[0.25em] text-emerald-700 dark:text-emerald-300;
-}
-
-.serviceSelectorBadge {
-  @apply inline-flex items-center rounded-full bg-emerald-100 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.2em] text-emerald-800 dark:bg-emerald-900/30 dark:text-emerald-200;
-}
-
-.serviceSelectWrap {
-  @apply relative;
-}
-
-.serviceSelect {
-  @apply w-full appearance-none rounded-[1.25rem] border border-zinc-200 bg-white px-4 py-4 pr-14 text-base font-medium text-zinc-900 shadow-inner shadow-zinc-100 outline-none transition duration-200 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-100 dark:shadow-none dark:focus:ring-emerald-900;
-}
-
-.serviceSelectIcon {
-  @apply pointer-events-none absolute inset-y-0 right-3 flex items-center justify-center rounded-xl border border-zinc-200 bg-zinc-50 p-2 text-zinc-500 shadow-sm dark:border-zinc-700 dark:bg-zinc-800 dark:text-zinc-300;
-}
-
-.serviceSelectIconSvg {
-  @apply h-4 w-4;
-}
-
-.serviceInfoGroup {
-  @apply space-y-4;
-}
-
-.serviceDetailsGroup {
-  @apply space-y-3;
-}
-
-.serviceOverviewCard {
-  @apply rounded-[2rem] border border-zinc-200 bg-zinc-950 p-6 text-white shadow-sm dark:border-zinc-800;
-}
-
-.serviceOverviewEyebrow {
-  @apply text-sm font-semibold uppercase tracking-[0.25em] text-emerald-300;
-}
-
-.serviceOverviewTitle {
-  @apply mt-3 text-2xl font-semibold;
-}
-
-.serviceOverviewDescription {
-  @apply mt-3 text-sm leading-7 text-zinc-300;
-}
-
-.servicePanel {
-  @apply relative flex min-h-[540px] items-end overflow-hidden rounded-[2rem] border border-zinc-200 bg-cover bg-center bg-no-repeat p-5 shadow-[0_24px_60px_rgba(15,23,42,0.08)] dark:border-zinc-800;
-  background-color: #f3f4f6;
-}
-
-.servicePanelBody {
-  @apply relative z-10 w-full rounded-[1.5rem] border border-white/25 bg-white/90 p-6 backdrop-blur-md shadow-2xl sm:p-8;
-}
-
-.servicePill {
-  @apply inline-flex rounded-full bg-emerald-100 px-3 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-emerald-800 dark:bg-emerald-900/30 dark:text-emerald-200;
-}
-
-.serviceTitleRow {
-  @apply mt-4 flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between;
-}
-
-.serviceTitle {
-  @apply text-2xl font-semibold text-zinc-950 dark:text-white;
-}
-
-.servicePriceBadge {
-  @apply rounded-full bg-emerald-100 px-3 py-2 text-xs font-semibold text-emerald-800 dark:bg-emerald-900/30 dark:text-emerald-200;
-}
-
-.serviceDescription {
-  @apply mt-3 text-base leading-7 text-zinc-700 dark:text-zinc-300;
-}
-
-.serviceDetailsGroup {
-  @apply mt-6 space-y-3;
-}
-
-.serviceDetailsHeader {
-  @apply text-xs font-semibold uppercase tracking-[0.25em] text-emerald-700 dark:text-emerald-300;
-}
-
-.serviceOfferingsList {
-  @apply space-y-2 text-sm leading-7 text-zinc-700 dark:text-zinc-300;
-}
-
-.serviceOfferingItem {
-  @apply flex gap-3;
-}
-
-.serviceBullet {
-  @apply mt-2 h-2.5 w-2.5 shrink-0 rounded-full bg-emerald-500;
-}
-
-/* New grid items for replacing dropdown */
-.serviceGrid {
-  @apply grid gap-3 grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-1;
-}
-
-.serviceItem {
-  @apply flex items-center gap-3 rounded-xl border border-zinc-200 bg-white p-3 text-left transition-shadow hover:shadow-md dark:border-zinc-800 dark:bg-zinc-900;
-}
-
-.serviceItemActive {
-  @apply ring-2 ring-emerald-300 shadow-lg;
-}
-
-.serviceItemThumb {
-  @apply flex-shrink-0 h-16 w-28 rounded-md bg-center bg-cover bg-no-repeat ring-1 ring-zinc-100;
-}
-
-.serviceItemContent {
-  @apply min-w-0 flex-1;
-}
-
-.serviceItemTitle {
-  @apply text-sm font-semibold text-zinc-900 dark:text-zinc-100;
-}
-
-.serviceItemMeta {
-  @apply text-xs text-zinc-500;
-}
-
-.serviceSelectorSub {
-  @apply text-xs text-zinc-500;
-}
-
-.whySection {
-  @apply grid gap-8 rounded-[2rem] px-8 py-12 text-white sm:grid-cols-[1.2fr_0.8fr];
-  background: linear-gradient(90deg, rgba(16,185,129,0.12) 0%, rgba(15,23,42,0.95) 40%);
-  box-shadow: inset 0 1px 0 rgba(255,255,255,0.02);
-}
-
-.whyIntro {
-  @apply space-y-4;
-}
-
-.whyTitle {
-  @apply text-sm font-semibold uppercase tracking-[.25em] text-emerald-300;
-}
-
-.whyHeading {
-  @apply text-3xl font-semibold tracking-tight sm:text-4xl;
-}
-
-.whyText {
-  @apply max-w-xl text-base leading-7 text-zinc-100/90;
-}
-
-.whyGrid {
-  @apply grid gap-4;
-}
-
-.whyCard {
-  @apply rounded-3xl bg-white/10 p-5 ring-1 ring-white/10;
-}
-
-.whyCardTitle {
-  @apply text-sm font-semibold uppercase tracking-[.2em] text-emerald-300;
-}
-
-.whyCardDescription {
-  @apply mt-2 text-base leading-7 text-zinc-100/85;
-}
-
-.contactSection {
-  @apply grid gap-10 lg:grid-cols-[1fr_0.9fr];
-}
-
-.contactFormCard {
-  @apply space-y-6 rounded-[2rem] bg-white p-10 shadow-md ring-1 ring-zinc-100 dark:bg-zinc-900 dark:ring-zinc-800;
-  box-shadow: 0 10px 30px rgba(15,23,42,0.06);
-}
-
-.formHeader {
-  @apply space-y-3;
-}
-
-.contactEyebrow {
-  @apply text-sm font-semibold uppercase tracking-[.25em] text-emerald-700 dark:text-emerald-300;
-}
-
-.contactHeading {
-  @apply text-3xl font-semibold tracking-tight text-zinc-950 dark:text-white;
-}
-
-.contactDescription {
-  @apply max-w-xl text-base leading-7 text-zinc-600 dark:text-zinc-300;
-}
-
-.contactForm {
-  @apply grid gap-4;
-}
-
-.formGrid {
-  @apply grid gap-4 md:grid-cols-2;
-}
-
-.formField {
-  @apply space-y-2 text-sm text-zinc-700 dark:text-zinc-300;
-}
-
-.formLabel {
-  @apply space-y-2 text-sm text-zinc-700 dark:text-zinc-300;
-}
-
-.formInput {
-  @apply w-full rounded-2xl border border-zinc-200 bg-white px-4 py-3 text-sm text-zinc-900 outline-none transition focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200 dark:border-zinc-700 dark:bg-zinc-950 dark:text-zinc-100;
-}
-
-.formFieldSet {
-  @apply space-y-3 rounded-3xl border border-zinc-200 bg-white p-5 dark:border-zinc-800 dark:bg-zinc-950;
-}
-
-.formFieldSetLegend {
-  @apply text-sm font-semibold text-zinc-900 dark:text-zinc-100;
-}
-
-.formSelect {
-  @apply w-full appearance-none rounded-2xl border border-zinc-200 bg-zinc-50 px-4 py-4 pr-12 text-base font-medium text-zinc-900 shadow-sm outline-none transition focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-100 dark:focus:ring-emerald-900;
-}
-
-.formTextarea {
-  @apply min-h-[120px] w-full rounded-2xl border border-zinc-200 bg-white px-4 py-3 text-sm text-zinc-900 outline-none transition focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200 dark:border-zinc-700 dark:bg-zinc-950 dark:text-zinc-100;
-}
-
-.submitButton {
-  @apply inline-flex items-center justify-center rounded-full bg-emerald-900 px-6 py-3 text-sm font-semibold text-white transition hover:bg-emerald-700 disabled:opacity-50;
-}
-
-.formError {
-  @apply rounded-3xl bg-red-100 p-4 text-sm text-red-900 dark:bg-red-900/20 dark:text-red-100;
-}
-
-.formSuccess {
-  @apply rounded-3xl bg-emerald-100 p-4 text-sm text-emerald-900 dark:bg-emerald-900/20 dark:text-emerald-100;
-}
-
-.contactMediaGrid {
-  @apply grid gap-4;
-}
-
-.contactImage {
-  @apply overflow-hidden rounded-[1.75rem] bg-zinc-100 dark:bg-zinc-900;
-}
-
-.contactImageAsset {
-  @apply h-full w-full object-cover;
-}
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,500;9..144,600&display=swap');
+
+.page { min-height: 100vh; background: #f4f8ef; color: #214234; font-family: 'DM Sans', sans-serif; }
+.wrapper { max-width: 1280px; margin: 0 auto; padding: 0 32px 100px; }
+.header { position: sticky; top: 0; z-index: 20; background: rgba(244,248,239,.9); border-bottom: 1px solid #d7e4d3; backdrop-filter: blur(14px); }
+.headerInner { max-width: 1280px; height: 78px; margin: 0 auto; padding: 0 32px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+.brandLink { display: flex; align-items: center; gap: 11px; color: inherit; text-decoration: none; }
+.brandMark { width: 42px; height: 42px; overflow: hidden; border-radius: 50%; background: #d9e7d0; }
+.brandLogo { width: 100%; height: 100%; object-fit: cover; }
+.brandName { margin: 0; font-size: 18px; font-weight: 700; letter-spacing: -.04em; }
+.brandTag { margin: 1px 0 0; color: #708076; font-size: 10px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; }
+.mainNav { display: flex; gap: 28px; margin-left: auto; }
+.navLink { color: #5e7168; font-size: 13px; font-weight: 600; text-decoration: none; }
+.navLink:hover { color: #214234; }
+.primaryCta, .primaryButton, .submitButton { display: inline-flex; align-items: center; justify-content: center; border: 0; border-radius: 999px; background: #5d8a68; color: #fff; font-size: 13px; font-weight: 700; text-decoration: none; transition: transform .2s, background .2s; }
+.primaryCta { padding: 11px 18px; }
+.primaryCta:hover, .primaryButton:hover, .submitButton:hover { background: #416f50; transform: translateY(-2px); }
+.heroSection { padding: 74px 0 96px; }
+.heroPanel { display: grid; grid-template-columns: minmax(0, 1fr) minmax(380px, .84fr); gap: 72px; align-items: center; }
+.heroContent { padding: 20px 0; }
+.heroBadge, .servicePill { display: inline-flex; align-items: center; border-radius: 99px; background: #e1ebd7; color: #4c765b; font-size: 11px; font-weight: 700; letter-spacing: .13em; text-transform: uppercase; }
+.heroBadge { padding: 9px 14px; }
+.heroCopy { margin-top: 26px; }
+.heroHeading, .serviceHeading, .whyHeading, .contactHeading { font-family: 'Fraunces', Georgia, serif; font-weight: 500; letter-spacing: -.045em; }
+.heroHeading { max-width: 700px; margin: 0; font-size: clamp(50px, 6.5vw, 88px); line-height: .98; color: #214234; }
+.heroText { max-width: 530px; margin: 25px 0 0; color: #64766c; font-size: 17px; line-height: 1.7; }
+.heroActions { display: flex; gap: 12px; margin-top: 30px; }
+.primaryButton, .secondaryButton { padding: 14px 21px; }
+.secondaryButton { display: inline-flex; align-items: center; border: 1px solid #cbd7c9; border-radius: 999px; color: #36584a; font-size: 13px; font-weight: 700; text-decoration: none; }
+.heroTrustBar { display: flex; flex-wrap: wrap; gap: 18px; margin-top: 34px; }
+.heroTrustItem { display: flex; align-items: center; gap: 7px; color: #6d7c72; font-size: 12px; }
+.heroTrustDot { color: #5d8a68; font-size: 15px; }
+.statsGrid { display: flex; gap: 28px; margin-top: 48px; padding-top: 20px; border-top: 1px solid #dbe4d8; }
+.statValue { margin: 0; color: #5d8a68; font-size: 28px; font-weight: 700; }
+.statLabel { max-width: 130px; margin: 5px 0 0; color: #77877c; font-size: 11px; line-height: 1.4; }
+.heroImage { position: relative; aspect-ratio: 1 / 1; overflow: hidden; border-radius: 220px 220px 20px 20px; background: #cddbc7; }
+.heroImageAsset { width: 100%; height: 100%; object-fit: cover; object-position: center center; }
+.heroImage:after { position: absolute; inset: 0; content: ""; background: linear-gradient(180deg, transparent 55%, rgba(24,53,45,.25)); }
+.heroImageBadge { position: absolute; z-index: 1; top: 22px; right: 22px; display: inline-flex; align-items: center; gap: 8px; padding: 10px 13px; border-radius: 99px; background: rgba(255,255,255,.86); color: #36584a; font-size: 11px; font-weight: 700; }
+.heroImageBadgeDot { width: 7px; height: 7px; border-radius: 50%; background: #5d8a68; }
+.servicesSection { padding-top: 20px; }
+.serviceCard { padding: 75px 0; border-top: 1px solid #d8e1d6; }
+.serviceIntro { display: flex; align-items: end; justify-content: space-between; gap: 40px; margin-bottom: 42px; }
+.serviceSelectLabel, .contactEyebrow, .whyTitle { margin: 0 0 10px; color: #5d8a68; font-size: 11px; font-weight: 700; letter-spacing: .17em; text-transform: uppercase; }
+.serviceHeading { max-width: 590px; margin: 0; font-size: clamp(38px, 5vw, 64px); line-height: 1; }
+.serviceIntroText { max-width: 250px; margin: 0 0 4px; color: #738278; font-size: 14px; line-height: 1.6; }
+.serviceLayout { display: grid; grid-template-columns: .72fr 1.28fr; gap: 52px; align-items: stretch; }
+.serviceGrid { display: flex; flex-direction: column; border-top: 1px solid #d8e1d6; }
+.serviceItem { display: flex; align-items: center; gap: 16px; width: 100%; padding: 17px 0; border: 0; border-bottom: 1px solid #d8e1d6; background: none; color: #6e7e74; text-align: left; cursor: pointer; }
+.serviceItem:hover, .serviceItemActive { color: #214234; }
+.serviceItemNumber { width: 25px; color: #a2b0a5; font-size: 11px; }
+.serviceItemContent { display: flex; flex: 1; flex-direction: column; gap: 4px; }
+.serviceItemTitle { font-size: 15px; font-weight: 700; }
+.serviceItemMeta { color: #94a198; font-size: 11px; }
+.serviceItemArrow { font-size: 19px; opacity: 0; transition: opacity .2s, transform .2s; }
+.serviceItem:hover .serviceItemArrow, .serviceItemActive .serviceItemArrow { opacity: 1; transform: translate(2px, -2px); color: #5d8a68; }
+.servicePanel { position: relative; min-height: 560px; overflow: hidden; border-radius: 18px; background: #214234; }
+.servicePanelImage { position: absolute; inset: 0; background-position: center; background-size: cover; opacity: .64; }
+.servicePanelImage:after { position: absolute; inset: 0; content: ""; background: linear-gradient(180deg, rgba(24,53,45,.05), rgba(24,53,45,.94) 88%); }
+.servicePanelBody { position: absolute; right: 0; bottom: 0; left: 0; padding: 32px; color: #fff; }
+.servicePill { padding: 7px 10px; background: rgba(225,235,215,.18); color: #dce9d3; }
+.serviceTitleRow { display: flex; align-items: end; justify-content: space-between; gap: 20px; margin-top: 15px; }
+.serviceTitle { max-width: 550px; margin: 0; font-family: 'Fraunces', Georgia, serif; font-size: 36px; font-weight: 500; line-height: 1; letter-spacing: -.04em; }
+.servicePriceBadge { color: #f6b28c; font-size: 12px; font-weight: 700; white-space: nowrap; }
+.serviceDescription { max-width: 620px; margin: 16px 0 0; color: #d1dbd3; font-size: 14px; line-height: 1.65; }
+.serviceDetailsGroup { margin-top: 20px; }
+.serviceDetailsHeader { margin: 0 0 10px; color: #f6b28c; font-size: 10px; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; }
+.serviceOfferingsList { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 24px; margin: 0; padding: 0; list-style: none; color: #e2e9e3; font-size: 12px; line-height: 1.45; }
+.serviceOfferingItem { display: flex; gap: 8px; }
+.serviceBullet { width: 5px; height: 5px; flex: 0 0 5px; margin-top: 6px; border-radius: 50%; background: #9fbe91; }
+.serviceLink { display: inline-flex; gap: 9px; margin-top: 24px; color: #fff; font-size: 12px; font-weight: 700; text-decoration: none; }
+.whySection { display: grid; grid-template-columns: .85fr 1.15fr; gap: 80px; padding: 76px 0; border-top: 1px solid #d8e1d6; }
+.whyHeading { max-width: 460px; margin: 0; font-size: 52px; line-height: 1; }
+.whyText { max-width: 430px; margin: 20px 0 0; color: #6d7d72; font-size: 15px; line-height: 1.7; }
+.whyGrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; align-items: end; }
+.whyCard { padding-top: 20px; border-top: 2px solid #8eb38b; }
+.whyCardTitle { margin: 0; color: #214234; font-size: 14px; font-weight: 700; }
+.whyCardDescription { margin: 12px 0 0; color: #738278; font-size: 13px; line-height: 1.6; }
+.contactSection { display: grid; grid-template-columns: 1fr .85fr; gap: 58px; padding-top: 70px; border-top: 1px solid #d8e1d6; }
+.contactFormCard { padding: 42px; border-radius: 18px; background: #e6eee1; }
+.contactHeading { margin: 0; font-size: 48px; line-height: 1; }
+.contactDescription { max-width: 500px; margin: 17px 0 8px; color: #607267; font-size: 14px; line-height: 1.6; }
+.contactFormCard > .formHeader > p:last-child { color: #36584a; font-size: 13px; font-weight: 700; }
+.contactForm { display: grid; gap: 15px; margin-top: 30px; }
+.formGrid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+.formField, .formLabel { display: grid; gap: 7px; color: #527064; font-size: 11px; font-weight: 700; }
+.formInput, .formSelect, .formTextarea { width: 100%; box-sizing: border-box; border: 1px solid #ccd9c9; border-radius: 8px; padding: 12px; background: #f7faf5; color: #214234; font: inherit; font-size: 13px; outline: none; }
+.formTextarea { min-height: 105px; resize: vertical; }
+.formInput:focus, .formSelect:focus, .formTextarea:focus { border-color: #5d8a68; }
+.formFieldSet { margin: 0; padding: 0; border: 0; }
+.formFieldSetLegend { margin-bottom: 7px; color: #527064; font-size: 11px; font-weight: 700; }
+.submitButton { padding: 13px 20px; cursor: pointer; }
+.formError, .formSuccess { margin-top: 15px; padding: 12px; border-radius: 8px; font-size: 12px; }
+.formError { background: #fbe1d8; color: #9f3b1e; }
+.formSuccess { background: #d7e9d0; color: #356345; }
+.contactMediaGrid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+.contactImage { min-height: 280px; overflow: hidden; border-radius: 18px; background: #cadac4; }
+.contactImage:first-child { transform: translateY(44px); }
+.contactImageAsset { width: 100%; height: 100%; object-fit: cover; }
+.contactImageA .contactImageAsset { object-position: center 38%; }
+.contactImageB .contactImageAsset { object-position: center 58%; }
+@media (max-width: 900px) { .heroPanel, .serviceLayout, .whySection, .contactSection { grid-template-columns: 1fr; } .heroImage { aspect-ratio: 4 / 3; border-radius: 160px 160px 18px 18px; } .serviceGrid { order: 2; } .servicePanel { min-height: 600px; } .whyGrid { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 640px) { .wrapper { padding: 0 20px 65px; } .headerInner { height: 68px; padding: 0 20px; } .mainNav { display: none; } .primaryCta { padding: 9px 13px; font-size: 11px; } .heroSection { padding: 48px 0 70px; } .heroPanel { gap: 40px; } .heroHeading { font-size: 49px; } .heroText { font-size: 15px; } .heroImage { aspect-ratio: 4 / 3; border-radius: 120px 120px 16px 16px; } .statsGrid { gap: 15px; } .statValue { font-size: 23px; } .serviceCard { padding: 60px 0; } .serviceIntro { display: block; margin-bottom: 28px; } .serviceIntroText { margin-top: 17px; } .servicePanel { min-height: 650px; } .servicePanelBody { padding: 23px; } .serviceTitleRow { display: block; } .servicePriceBadge { display: block; margin-top: 10px; } .serviceOfferingsList { grid-template-columns: 1fr; } .whySection { gap: 40px; padding: 60px 0; } .whyHeading { font-size: 42px; } .whyGrid { grid-template-columns: 1fr; gap: 24px; } .contactFormCard { padding: 25px; } .contactHeading { font-size: 40px; } .contactMediaGrid { display: none; } .formGrid { grid-template-columns: 1fr; } }
