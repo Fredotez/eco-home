@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useState } from "react";
 import styles from "../app/page.module.css";
 import type { ServiceItem } from "../types/home";
@@ -43,11 +44,16 @@ export function ServiceCard({ services }: { services: ServiceItem[] }) {
           {selectedService ? (
             <div
               className={styles.servicePanelImage}
-              style={{
-                backgroundImage: `url(${selectedService.image})`,
-                backgroundPosition: selectedService.imagePosition ?? "center",
-              }}
-            />
+            >
+              <Image
+                src={selectedService.image}
+                alt={selectedService.alt}
+                fill
+                sizes="(max-width: 900px) 100vw, 55vw"
+                className={styles.servicePanelImageAsset}
+                style={{ objectPosition: selectedService.imagePosition ?? "center" }}
+              />
+            </div>
           ) : null}
           <div className={styles.servicePanelBody}>
             <div className={styles.servicePill}>Tailored support</div>

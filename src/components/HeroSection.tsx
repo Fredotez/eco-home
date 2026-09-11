@@ -46,11 +46,10 @@ export function HeroSection({ hero, stats }: { hero: HeroSectionType; stats: Sta
 
         <div className={styles.heroImage}>
           <div className={styles.heroImageBadge}>
-            <span className={styles.heroImageBadgeDot} />
-            Property care
+            The Solution for Every Home Project, Move, and Season.
           </div>
           <Image
-            src="/img/LawnCare.jpeg"
+            src="/img/Home.jpg"
             alt="Fresh sod being installed"
             width={900}
             height={700}

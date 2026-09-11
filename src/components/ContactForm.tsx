@@ -17,9 +17,13 @@ type FormState = {
 export function ContactForm({
   contact,
   services,
+  selectedService,
+  onSelectedServiceChange,
 }: {
   contact: ContactSection;
   services: ServiceItem[];
+  selectedService?: ServiceItem;
+  onSelectedServiceChange: (title: string) => void;
 }) {
   const [form, setForm] = useState<FormState>({
     firstName: "",
@@ -32,10 +36,6 @@ export function ContactForm({
   const [submitted, setSubmitted] = useState(false);
   const [isSending, setIsSending] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const [selectedTitle, setSelectedTitle] = useState(services[0]?.title ?? "");
-
-  const selectedService = services.find((service) => service.title === selectedTitle) ?? services[0];
-
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setError(null);
@@ -45,7 +45,7 @@ export function ContactForm({
       const response = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...form, service: selectedTitle }),
+        body: JSON.stringify({ ...form, service: selectedService?.title ?? "" }),
       });
       const data = await response.json().catch(() => ({}));
 
@@ -98,7 +98,7 @@ export function ContactForm({
         <fieldset className={styles.formFieldSet}>
           <legend className={styles.formFieldSetLegend}>Requested services</legend>
           <select id="service-select" value={selectedService?.title ?? ""}
-            onChange={(event) => setSelectedTitle(event.target.value)} className={styles.formSelect}>
+            onChange={(event) => onSelectedServiceChange(event.target.value)} className={styles.formSelect}>
             {services.map((service) => <option key={service.title} value={service.title}>{service.title}</option>)}
           </select>
         </fieldset>
