@@ -96,7 +96,7 @@ export const services: ServiceItem[] = [
             "Execution of small projects",
         ],
         priceEstimate: "$120–$220/hr",
-        image: "/img/Repairs.jpg",
+        image: "/img/Driveway.jpeg",
         alt: "Home improvement projects",
         imagePosition: "center 40%",
     },
