@@ -6,6 +6,8 @@ import type {
     WhyChooseItem,
 } from "../types/home";
 
+/* Home page data */
+
 export const hero: HeroSection = {
     headline: "Practical support for every home project, move, and season.",
     description:
