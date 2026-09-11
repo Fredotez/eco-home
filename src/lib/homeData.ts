@@ -26,10 +26,58 @@ export const services: ServiceItem[] = [
             "Reliable individual item transport",
             "Packing, unpacking, and organization services",
         ],
+<<<<<<< Updated upstream
         priceEstimate: "From $150 per hour",
         image: "/img/DrivewayLay.jpeg",
         alt: "Moving and transition support",
         imagePosition: "center 42%",
+=======
+        priceEstimate: "From $120/hr",
+        image: "/img/Moving.jpg",
+        alt: "Moving labor and transition support",
+    },
+    {
+        title: "Junk Removal & Property Clearing",
+        description:
+            "Premium junk removal and property-clearing services—removal, loading, transport, and responsible disposal handled end-to-end.",
+        offerings: [
+            "Single item removal from $149",
+            "Essential clear-out from $229",
+            "Half-truck clear-out from $549",
+            "Add-ons such as mattresses, tires, appliances, and demolition",
+        ],
+        priceEstimate: "From $149",
+        image: "/img/Junk.jpeg",
+        alt: "Junk removal and property clearing",
+    },
+    {
+        title: "Item Delivery & Commercial Logistics",
+        description:
+            "Pickup, transportation, and delivery for residential and commercial items throughout Ottawa and surrounding areas.",
+        offerings: [
+            "Single item delivery from $149",
+            "Small commercial delivery from $249",
+            "Large commercial delivery from $599",
+            "White-glove, room-of-choice, and after-hours delivery options",
+        ],
+        priceEstimate: "From $149",
+        image: "/img/delivery.jpeg",
+        alt: "Item delivery and commercial logistics",
+    },
+    {
+        title: "Premium Painting Services",
+        description:
+            "Professional preparation, premium materials, and flawless finishes for residential and commercial properties.",
+        offerings: [
+            "Single room from $650",
+            "Multi-room package from $2,750",
+            "Full interior from $6,500",
+            "Exterior, trim, cabinetry, and feature-wall upgrades available",
+        ],
+        priceEstimate: "From $650",
+        image: "/img/paint.jpeg",
+        alt: "Premium painting services",
+>>>>>>> Stashed changes
     },
     {
         title: "Repairs & Handyman Work",
@@ -40,10 +88,16 @@ export const services: ServiceItem[] = [
             "Installations (fixtures, shelves, hardware)",
             "Furniture assembly (IKEA and more) and TV mounting",
         ],
+<<<<<<< Updated upstream
         priceEstimate: "$90–$160 per hour",
         image: "/img/CF9EC8A3-327F-43BB-BCD8-EC2A37295097_4_5005_c.jpeg",
         alt: "Home repairs and handyman work",
         imagePosition: "center 35%",
+=======
+        priceEstimate: "$90–$160/hr",
+        image: "/img/Repairs.jpg",
+        alt: "Repairs and handyman work",
+>>>>>>> Stashed changes
     },
     {
         title: "Home Improvement Projects",
@@ -55,8 +109,13 @@ export const services: ServiceItem[] = [
             "Interior enhancements",
             "Execution of small projects",
         ],
+<<<<<<< Updated upstream
         priceEstimate: "$120–$220 per hour",
         image: "/img/87EF1625-8AEE-491D-9ABF-50D14D13A19C.jpeg",
+=======
+        priceEstimate: "$120–$220/hr",
+        image: "/img/Repairs.jpeg",
+>>>>>>> Stashed changes
         alt: "Home improvement projects",
         imagePosition: "center 40%",
     },
