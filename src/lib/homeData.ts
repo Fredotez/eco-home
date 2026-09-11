@@ -26,12 +26,6 @@ export const services: ServiceItem[] = [
             "Reliable individual item transport",
             "Packing, unpacking, and organization services",
         ],
-<<<<<<< Updated upstream
-        priceEstimate: "From $150 per hour",
-        image: "/img/DrivewayLay.jpeg",
-        alt: "Moving and transition support",
-        imagePosition: "center 42%",
-=======
         priceEstimate: "From $120/hr",
         image: "/img/Moving.jpg",
         alt: "Moving labor and transition support",
@@ -77,7 +71,6 @@ export const services: ServiceItem[] = [
         priceEstimate: "From $650",
         image: "/img/paint.jpeg",
         alt: "Premium painting services",
->>>>>>> Stashed changes
     },
     {
         title: "Repairs & Handyman Work",
@@ -88,16 +81,9 @@ export const services: ServiceItem[] = [
             "Installations (fixtures, shelves, hardware)",
             "Furniture assembly (IKEA and more) and TV mounting",
         ],
-<<<<<<< Updated upstream
-        priceEstimate: "$90–$160 per hour",
-        image: "/img/CF9EC8A3-327F-43BB-BCD8-EC2A37295097_4_5005_c.jpeg",
-        alt: "Home repairs and handyman work",
-        imagePosition: "center 35%",
-=======
         priceEstimate: "$90–$160/hr",
         image: "/img/Repairs.jpg",
         alt: "Repairs and handyman work",
->>>>>>> Stashed changes
     },
     {
         title: "Home Improvement Projects",
@@ -109,13 +95,8 @@ export const services: ServiceItem[] = [
             "Interior enhancements",
             "Execution of small projects",
         ],
-<<<<<<< Updated upstream
-        priceEstimate: "$120–$220 per hour",
-        image: "/img/87EF1625-8AEE-491D-9ABF-50D14D13A19C.jpeg",
-=======
         priceEstimate: "$120–$220/hr",
         image: "/img/Repairs.jpeg",
->>>>>>> Stashed changes
         alt: "Home improvement projects",
         imagePosition: "center 40%",
     },
