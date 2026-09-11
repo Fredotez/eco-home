@@ -13,6 +13,7 @@ export interface ServiceItem {
     priceEstimate: string;
     image: string;
     alt: string;
+    imagePosition?: string;
 }
 
 export interface StatItem {

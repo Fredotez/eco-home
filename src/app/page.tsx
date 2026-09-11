@@ -9,7 +9,7 @@ import { contactSection, hero, services, stats, whyChoose } from "../lib/homeDat
 const navItems = [
   { label: "Home", href: "#top" },
   { label: "Services", href: "#services" },
-  { label: "Why us", href: "#why-us" },
+  //{ label: "Why us", href: "#why-us" },
 ];
 
 export default function Home() {
@@ -51,17 +51,6 @@ export default function Home() {
         <HeroSection hero={hero} stats={stats} />
 
         <section id="services" className={styles.servicesSection}>
-          <div className={styles.servicesIntro}>
-            <p className={styles.serviceBadge}>Our services</p>
-            <h2 className={styles.servicesTitle}>
-              Comprehensive support for homes, rentals, and property transitions.
-            </h2>
-            <p className={styles.servicesText}>
-              From moving and repairs to organization, property prep, and seasonal upkeep, Eco-Home delivers
-              dependable, professional support tailored to the way you live and work.
-            </p>
-          </div>
-
           <ServiceCard services={services} />
         </section>
 

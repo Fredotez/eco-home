@@ -99,6 +99,7 @@ export const services: ServiceItem[] = [
         priceEstimate: "$120–$220/hr",
         image: "/img/444D16BB-198C-42C3-B97F-7351B5EAAFD5.jpeg",
         alt: "Home improvement projects",
+        imagePosition: "center 40%",
     },
     {
         title: "Outdoor & Yard Services",
@@ -141,6 +142,7 @@ export const services: ServiceItem[] = [
         priceEstimate: "From $150/visit",
         image: "/img/Lawn.jpeg",
         alt: "Property turnover and prep",
+        imagePosition: "center 42%",
     },
     {
         title: "Cleaning",
