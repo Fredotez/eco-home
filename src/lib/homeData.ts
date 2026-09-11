@@ -9,27 +9,27 @@ import type {
 /* Home page data */
 
 export const hero: HeroSection = {
-    headline: "Practical support for every home project, move, and season.",
+    headline: "Moving, painting, cleanup, and home support when you need it most.",
     description:
-        "From moving and repairs to home improvements, organization, yard care, and seasonal upkeep, Eco-Home provides dependable service with a polished, professional finish.",
-    badge: "Trusted support for homes, rentals, and property transitions",
+        "Eco Home Services and Maple Movers deliver dependable support for local moves, junk removal, painting, deliveries, repairs, and property prep across Ottawa and surrounding areas.",
+    badge: "Trusted local service for homes, rentals, and property transitions",
     primaryAction: "Explore services",
     secondaryAction: "Request a quote",
 };
 
 export const services: ServiceItem[] = [
     {
-        title: "Moving & Transition Support",
+        title: "Moving Labor",
         description:
-            "We help make your move smooth from start to finish—without the stress. Whether you're relocating or preparing a space, we handle the heavy lifting and setup so you can focus on settling in.",
+            "Professional moving crews for local moves, from straightforward labor to full white-glove service.",
         offerings: [
-            "Expert in large, medium, and small moves, both locally and long-distance",
-            "Skilled moving labor for loading and unloading",
-            "Reliable individual item transport",
-            "Packing, unpacking, and organization services",
+            "2 movers from $120/hr",
+            "3 movers from $180/hr",
+            "4 movers from $240/hr",
+            "White-glove service with packing, setup, and furniture handling",
         ],
         priceEstimate: "From $120/hr",
-        image: "/img/Moving.jpg",
+        image: "/img/DrivewayLay.jpeg",
         alt: "Moving labor and transition support",
     },
     {
@@ -43,7 +43,7 @@ export const services: ServiceItem[] = [
             "Add-ons such as mattresses, tires, appliances, and demolition",
         ],
         priceEstimate: "From $149",
-        image: "/img/Junk.jpeg",
+        image: "/img/LawnCare.jpeg",
         alt: "Junk removal and property clearing",
     },
     {
@@ -57,7 +57,7 @@ export const services: ServiceItem[] = [
             "White-glove, room-of-choice, and after-hours delivery options",
         ],
         priceEstimate: "From $149",
-        image: "/img/Delivery.jpg",
+        image: "/img/CF9EC8A3-327F-43BB-BCD8-EC2A37295097_4_5005_c.jpeg",
         alt: "Item delivery and commercial logistics",
     },
     {
@@ -71,152 +71,137 @@ export const services: ServiceItem[] = [
             "Exterior, trim, cabinetry, and feature-wall upgrades available",
         ],
         priceEstimate: "From $650",
-        image: "/img/Paint.jpeg",
+        image: "/img/87EF1625-8AEE-491D-9ABF-50D14D13A19C.jpeg",
         alt: "Premium painting services",
     },
     {
         title: "Repairs & Handyman Work",
         description:
-            "Reliable help for the fixes and upgrades that keep your home functioning properly.",
+            "General home repairs, installations, furniture assembly, and TV mounting for everyday maintenance and small improvements.",
         offerings: [
-            "General home repairs",
-            "Installations (fixtures, shelves, hardware)",
-            "Furniture assembly (IKEA and more) and TV mounting",
+            "General repairs and installations",
+            "Furniture assembly and TV mounting",
+            "Small fix-ups and functional upgrades",
+            "Flexible hourly scheduling",
         ],
         priceEstimate: "$90–$160/hr",
-        image: "/img/Repairs.jpg",
+        image: "/img/AF7FD3A0-EC63-48BE-985D-D35433398D05.jpeg",
         alt: "Repairs and handyman work",
     },
     {
         title: "Home Improvement Projects",
         description:
-            "Enhance your    living space with practical upgrades that add comfort and value.",
+            "Painting touch-ups, minor renovations, interior enhancements, and practical upgrades that improve daily living.",
         offerings: [
-            "Painting and touch-ups",
-            "Minor renovations and upgrades",
-            "Interior enhancements",
-            "Execution of small projects",
+            "Interior upgrades and touch-ups",
+            "Minor renovations and improvements",
+            "Custom small project execution",
+            "Professional finishing for rental and resale properties",
         ],
         priceEstimate: "$120–$220/hr",
-        image: "/img/Driveway.jpeg",
+        image: "/img/444D16BB-198C-42C3-B97F-7351B5EAAFD5.jpeg",
         alt: "Home improvement projects",
         imagePosition: "center 40%",
     },
     {
         title: "Outdoor & Yard Services",
         description:
-            "Keep your property looking its best with efficient, seasonal outdoor work.",
+            "Yard clean-up, landscaping, sod, interlocking, garden design, and outdoor setup or takedown for easy curb appeal.",
         offerings: [
-            "Yard clean-up and maintenance",
-            "Landscaping solutions including sod installation, interlocking, and garden design",
-            "Outdoor setup and takedown",
+            "Hourly rates from $110–$190/hr",
+            "Interlock installation from $25/sq ft",
+            "Fence and sod installation quotes available",
+            "Seasonal outdoor refresh and property prep",
         ],
-        priceEstimate: "$110–$190 per hour",
-        image: "/img/LawnCare.jpeg",
-        alt: "Outdoor and yard maintenance",
-        imagePosition: "center 48%",
+        priceEstimate: "$110–$190/hr",
+        image: "/img/Lawn.jpeg",
+        alt: "Outdoor and yard services",
     },
     {
         title: "Seasonal Maintenance",
         description:
-            "Stay ahead of the weather with services designed to protect your home year-round.",
+            "Snow removal, seasonal prep, weeding, trimming, fertilizing, and pressure washing to keep spaces protected all year.",
         offerings: [
             "Snow removal and winter prep",
-            "Seasonal property preparation and readiness",
-            "Routine weeding, trimming, fertilizing, and soil care",
-            "Pressure washing of driveways, decks, siding, patios, etc",
+            "Routine seasonal maintenance",
+            "Pressure washing and outdoor detail work",
+            "Custom scheduling for residential and property upkeep",
         ],
-        priceEstimate: "$120–$200 per hour",
+        priceEstimate: "$120–$200/hr",
         image: "/img/Snow.jpeg",
-        alt: "Seasonal maintenance and snow removal",
-        imagePosition: "center center",
+        alt: "Seasonal maintenance services",
     },
     {
         title: "Property Turnover & Prep",
         description:
-            "Perfect for landlords, sellers, or renters—get spaces ready quickly and professionally.",
+            "Rental turnover clean-up, staging prep, and repairs before move-in, between occupants, or before sale.",
         offerings: [
-            "Rental turnover clean-up",
-            "Staging support prep",
-            "Repairs and touch-ups before move-in, between occupants, or pre-sale",
+            "Turnover visits from $150",
+            "Cleaning and touch-up coordination",
+            "Pre-move-in and pre-sale property prep",
+            "Fast turnaround for landlords and property managers",
         ],
-        priceEstimate: "From $150 per visit",
+        priceEstimate: "From $150/visit",
         image: "/img/Lawn.jpeg",
         alt: "Property turnover and prep",
         imagePosition: "center 42%",
     },
     {
-        title: "Home Organization & Setup",
+        title: "Cleaning",
         description:
-            "Create functional, organized spaces that make everyday living easier.",
+            "Home and property cleaning services tailored to your space, schedule, and level of detail needed.",
         offerings: [
-            "Room setup and organization",
-            "Building or organizing closets, shelves, cabinets, or other storage solutions",
-            "Decluttering support",
+            "Residential cleaning support",
+            "Property and turnover clean-up",
+            "Custom quote based on scope and size",
         ],
-        priceEstimate: "$100–$170 per hour",
+        priceEstimate: "Custom Quote",
         image: "/img/Ciment.jpeg",
-        alt: "Home organization and setup",
-        imagePosition: "center 38%",
+        alt: "Cleaning service",
     },
     {
-        title: "On-Demand Labour Support",
+        title: "Helping Hand",
         description:
-            "Extra hands when you need them—no project too small.",
+            "General on-demand assistance for projects, move-in support, or extra labour when you need a reliable helping hand.",
         offerings: [
-            "General labour help",
-            "Event or project assistance",
-            "Flexible hourly support",
+            "Flexible labour support",
+            "General assistance for projects and events",
+            "Custom quote for one-off jobs",
         ],
-        priceEstimate: "$95–$150 per hour",
-        image: "/img/Ciment.jpeg",
-        alt: "On-demand labour support",
-        imagePosition: "center 42%",
-    },
-    {
-        title: "Custom & Special Projects",
-        description:
-            "Have something unique in mind? We tailor our services to fit your specific needs.",
-        offerings: [
-            "One-off requests",
-            "Multi-service projects",
-            "Ongoing support arrangements",
-        ],
-        priceEstimate: "Estimates from $120 per hour",
-        image: "/img/Interlock.jpeg",
-        alt: "Custom and special projects",
-        imagePosition: "center 42%",
+        priceEstimate: "Custom Quote",
+        image: "/img/Driveway.jpeg",
+        alt: "Helping hand support",
     },
 ];
 
 export const stats: StatItem[] = [
-    { value: "10+", label: "Years of trusted local service" },
-    { value: "300+", label: "Completed landscape and driveway projects" },
-    { value: "Fast", label: "Responsive seasonal service" },
+    { value: "10+", label: "Years of local service" },
+    { value: "Ottawa", label: "Serving homes and properties across the region" },
+    { value: "Fast", label: "Responsive support for moves and seasonal work" },
 ];
 
 export const whyChoose: WhyChooseItem[] = [
     {
-        title: "Reliable craftsmanship",
+        title: "Reliable service",
         description:
-            "We use quality materials and professional techniques to ensure long-lasting results.",
+            "From moving day to seasonal maintenance, we show up prepared and communicate clearly from start to finish.",
     },
     {
-        title: "Seasonal expertise",
+        title: "Professional finish",
         description:
-            "From spring planting to winter snow clearing, we keep your property in top condition year-round.",
+            "We focus on clean execution, careful handling, and practical solutions that make the job feel easy.",
     },
     {
-        title: "Clear communication",
+        title: "Flexible support",
         description:
-            "We provide transparent estimates and keep you informed every step of the way.",
+            "Whether you need a one-time project or ongoing property care, our services are tailored to your timeline and budget.",
     },
 ];
 
 export const contactSection: ContactSection = {
-    heading: "Ready to improve your outdoor space?",
+    heading: "Ready to plan your next move or home project?",
     description:
-        "Contact Eco-Home for a free estimate on interlock, lawn care, landscape work, or dependable snow removal.",
+        "Contact Eco-Home for a free estimate on moving labor, junk removal, painting, repairs, and ongoing property support.",
     phone: "YOUR BUSINESS PHONE",
     email: "your-business-email@example.com",
     requestOptions: services.map((service) => service.title),
