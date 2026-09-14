@@ -9,10 +9,10 @@ import type {
 /* Home page data */
 
 export const hero: HeroSection = {
-    headline: "Practical support for every home project, move, and season.",
+    headline: "Reliable Home Services in Ottawa, All in One Place.",
     description:
         "From moving and repairs to home improvements, organization, yard care, and seasonal upkeep, Eco-Home provides dependable service with a polished, professional finish.",
-    badge: "Trusted support for homes, rentals, and property transitions",
+    badge: "Ottawa's all-in-one home service team",
     primaryAction: "Explore services",
     secondaryAction: "Request a quote",
 };
@@ -214,11 +214,11 @@ export const whyChoose: WhyChooseItem[] = [
 ];
 
 export const contactSection: ContactSection = {
-    heading: "Ready to improve your outdoor space?",
+    heading: "Ready to improve your home?",
     description:
-        "Contact Eco-Home for a free estimate on interlock, lawn care, landscape work, or dependable snow removal.",
-    phone: "YOUR BUSINESS PHONE",
-    email: "your-business-email@example.com",
+        "Contact Eco-Home for a free estimate on moving, home improvements, property care, or seasonal services.",
+    phone: "+1 (343) 314-0177",
+    email: "info@ecohomeservices.ca",
     requestOptions: services.map((service) => service.title),
     imageA: "/img/Lawn.jpeg",
     imageB: "/img/Driveway.jpeg",
