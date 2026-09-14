@@ -1,9 +1,14 @@
+"use client";
+
 import Image from "next/image";
+import { useState } from "react";
 import styles from "./page.module.css";
 import { ContactSection } from "../components/ContactSection";
 import { contactSection, hero, services, stats, whyChoose } from "../lib/homeData";
 
 export default function Home() {
+  const [selectedServiceTitle, setSelectedServiceTitle] = useState(services[0]?.title ?? "");
+
   return (
     <div id="top" className={styles.page}>
       <div className={styles.utilityBar}>
@@ -101,14 +106,24 @@ export default function Home() {
                     {service.priceEstimate && <span>{service.priceEstimate}</span>}
                   </div>
                   <p>{service.description}</p>
-                  <a href="#contact">Learn more <span>→</span></a>
+                  <a
+                    href="#contact"
+                    onClick={() => setSelectedServiceTitle(service.title)}
+                  >
+                    Learn more <span>→</span>
+                  </a>
                 </div>
               </article>
             ))}
           </div>
         </section>
 
-        <ContactSection contact={contactSection} services={services} />
+        <ContactSection
+          contact={contactSection}
+          services={services}
+          selectedServiceTitle={selectedServiceTitle}
+          onSelectedServiceChange={setSelectedServiceTitle}
+        />
       </main>
 
       <footer className={styles.footer}>
