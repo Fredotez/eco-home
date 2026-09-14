@@ -19,7 +19,13 @@ export default function Home() {
 
       <header className={styles.header}>
         <a href="#top" className={styles.brandLink} aria-label="Eco-Home Services home">
-          <span className={styles.brandMark}>EH</span>
+          <Image
+            src="/img/Logo-Green.png"
+            alt="EcoHome logo"
+            width={64}
+            height={64}
+            className={styles.brandLogo}
+          />
           <span className={styles.brandText}>
             <strong>ECO-HOME</strong>
             <small>SERVICES</small>
