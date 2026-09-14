@@ -18,60 +18,14 @@ export default function Home() {
       </div>
 
       <header className={styles.header}>
-<<<<<<< Updated upstream
         <a href="#top" className={styles.brandLink} aria-label="Eco-Home Services home">
           <span className={styles.brandMark}>EH</span>
-=======
-<<<<<<< Updated upstream
-        <div className={styles.headerInner}>
-          <a href="#top" className={styles.brandLink}>
-            <div className={styles.brandMark}>
-              <Image
-                src="/img/Logo-Green.png"
-                alt="EcoHome logo"
-                width={64}
-                height={64}
-                className={styles.brandLogo}
-              />
-            </div>
-            <div className={styles.brandText}>
-              <p className={styles.brandName}>EcoHome</p>
-              <p className={styles.brandTag}>Property care</p>
-            </div>
-          </a>
-
-          <nav className={styles.mainNav}>
-            {navItems.map((item) => (
-              <a key={item.label} href={item.href} className={styles.navLink}>
-                {item.label}
-              </a>
-            ))}
-          </nav>
-
-          <a href="#contact" className={styles.primaryCta}>
-            Request a Quote
-          </a>
-        </div>
-=======
-        <a href="#top" className={styles.brandLink} aria-label="Eco-Home Services home">
-          <Image
-            src="/img/Logo-Green.png"
-            alt="EcoHome logo"
-            width={64}
-            height={64}
-            className={styles.brandLogo}
-          />
->>>>>>> Stashed changes
           <span className={styles.brandText}>
             <strong>ECO-HOME</strong>
             <small>SERVICES</small>
           </span>
         </a>
         <a href="#contact" className={styles.primaryCta}>Get a Free Quote</a>
-<<<<<<< Updated upstream
-=======
->>>>>>> Stashed changes
->>>>>>> Stashed changes
       </header>
 
       <main>
